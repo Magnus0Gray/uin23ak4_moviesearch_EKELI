@@ -3,6 +3,7 @@
 $mainfont: Arial, sans-serif;
 
 $red: #870000;
+$error: red;
 $white: #FFFFFF;
 $black: #000000;
 $grey: #707070;
@@ -67,4 +68,8 @@ header {
     flex-wrap: wrap;
     justify-content: space-evenly;
     gap: 1rem;
+}
+
+.error-text{
+    color: $error;
 }

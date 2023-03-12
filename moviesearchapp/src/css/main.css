@@ -56,4 +56,8 @@ header a {
   gap: 1rem;
 }
 
+.error-text {
+  color: red;
+}
+
 /*# sourceMappingURL=main.css.map */
