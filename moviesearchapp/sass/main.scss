@@ -2,7 +2,7 @@
 
 $mainfont: Arial, sans-serif;
 
-$blue: #00DDDD;
+$red: #870000;
 $white: #FFFFFF;
 $black: #000000;
 $grey: #707070;
@@ -11,17 +11,18 @@ $maxwidth: 1200px;
 $rootsize: 20px;
 
 body {
-    background-color: $white;
-    color: $grey;
+    background-color: $black;
+    color: $white;
     font-family: $mainfont;
     font-size: $rootsize;
     margin-top: 1rem;
     margin-bottom: 0;
     padding-top: 0;
     padding-bottom: 0;
+    text-align: center;
 }
 
-div.container {
+.container {
     width: 100%;
     max-width: $maxwidth;
     margin: 0 auto;
@@ -30,67 +31,40 @@ div.container {
 
 header {
     padding: 2rem;
-    border: 1px solid $grey;
+    background-color: $red; 
 
     a {
         width: 100%;
         max-width: 250px;
         text-transform: uppercase;
         text-decoration: none;
-        color: $grey;
+        color: $white;
     }
 }
 
-.categoryButton, .categoryButtonSelected {
-    button {
-        margin-top: 1rem;
-        margin-bottom: 0;
-        margin-right: .5rem;
-        list-style-type: none;
-        font-weight: 100;
-        border-left: 1px solid $grey;
-        border-bottom: 0;
-        border-right: 1px solid $grey;
-        border-top: 1px solid $grey;
-        background-color: $lightgrey;
-        padding: 0.1rem 1rem;
+.movie-card {
+    border: 3px solid $grey;
+    border-radius: 20px;
+    padding: 5rem;
+    margin: 1rem;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 350px;
+    text-align: center;
+
+    img {
         width: auto;
         max-width: 350px;
-        min-width: 100px;
-        display: inline-block;
-
-        h3 {
-            text-transform: uppercase;
-            color: $grey;
-        }
+        align-self: center;
+        text-align: center;
     }
 }
 
-.categoryButtonSelected {
-    button {
-        background-color: $blue;
-
-
-        h3 {
-            color: $white;
-        }
-    }
-}
-
-.sources {
-    a {
-        color: $blue;
-    }
-}
-
-article {
-    border-left: 1px solid $grey;
-    border-bottom: 1px solid $grey;
-    border-right: 1px solid $grey;
-    border-top: 0.5rem solid $blue;
-    padding: 2rem;
-
-    h2 {
-        text-transform: uppercase;
-    }
+.searchresults {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 1rem;
 }

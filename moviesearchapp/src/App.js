@@ -1,24 +1,35 @@
 import './css/main.css';
-import { Route, Routes, Navigate } from 'react-router-dom';
-import NavBar from './components/NavBar'
-import PageContent from './components/PageContent'
+import { Route, Routes} from 'react-router-dom';
+import Main from './components/Main';
+import Layout from './components/Layout';
+import { useState, useEffect } from 'react'
 
 function App() {
-	//const defaultpage = 0;
-	return (
-		<div className="container">
-          <header>
-                  <h1>Ressursarkiv</h1>
-            </header>
-            <NavBar/>
-            <Routes>
-                <Route path="/" element={<Navigate replace to="/HTML" />}/>
-                <Route index path=':category' element={<PageContent />} />
-            </Routes>
+    const [movies, setMovies] = useState([])
+    //Set search with default
+    const [search, setSearch] = useState('James Bond')
 
-       </div>
+    const getMovies = async () => {
+        const searchResponse = await fetch(`http://www.omdbapi.com/?s=${search}&apikey=9b8e201b&type=movie`)
+        const searchData = await searchResponse.json()
+        console.log(searchData.Search)
+        setMovies(searchData.Search)
 
-	);
+
+       
+    }
+
+    useEffect(() => {
+        getMovies()
+    }, [])
+
+    return (
+        <Routes>
+            <Route element={<Layout />}>
+                <Route index element={<Main movies={movies} search={search} setSearch={setSearch} getMovies={getMovies} />} />
+            </Route>
+        </Routes>
+    )
 }
 
 export default App;
