@@ -1,12 +1,14 @@
 import { useState } from 'react'
 
-export default function Search({ setSearch, getMovies }) {
+export default function Search({ setSearch, getMovies, setSearchTerm }) {
     const [inputvalue, setInputvalue] = useState('')
     const [isValid, setIsValid] = useState(true)
 
     const handleSearch = (event) => {
+
         console.log(event.target.value)
         setInputvalue(event.target.value)
+        setSearch(event.target.value)
          
     }
 
@@ -15,8 +17,9 @@ export default function Search({ setSearch, getMovies }) {
 
     }
     const handleClick = (event) => {
+        console.log(inputvalue)
         if (inputvalue.length >= 4) {
-            setSearch(inputvalue)
+            setSearchTerm(inputvalue)
             getMovies()
             setIsValid(true)
         }

@@ -8,6 +8,8 @@ function App() {
     const [movies, setMovies] = useState([])
     //Set search with default
     const [search, setSearch] = useState('James Bond')
+    //full final term, used for display only
+    const [searchTerm, setSearchTerm] = useState('James Bond')
 
     const getMovies = async () => {
         const searchResponse = await fetch(`http://www.omdbapi.com/?s=${search}&apikey=9b8e201b&type=movie`)
@@ -26,7 +28,7 @@ function App() {
     return (
         <Routes>
             <Route element={<Layout />}>
-                <Route index element={<Main movies={movies} search={search} setSearch={setSearch} getMovies={getMovies} />} />
+                <Route index element={<Main movies={movies} searchTerm={searchTerm} setSearchTerm={setSearchTerm} setSearch={setSearch} getMovies={getMovies} />} />
             </Route>
         </Routes>
     )

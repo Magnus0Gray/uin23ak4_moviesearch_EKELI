@@ -3,11 +3,11 @@ import SearchResults from './SearchResults';
 
 
 
-export default function Main({ movies, search, setSearch, getMovies }) {
+export default function Main({ movies, searchTerm, setSearchTerm, search, setSearch, getMovies }) {
     return (
         <>
-            <Search setSearch={setSearch} getMovies={getMovies} />
-            <SearchResults movies={movies} search={search}/>
+            <Search setSearchTerm={setSearchTerm} setSearch={setSearch} getMovies={getMovies} />
+            <SearchResults searchTerm={searchTerm} movies={movies} search={search}/>
         </>
     );
 }
