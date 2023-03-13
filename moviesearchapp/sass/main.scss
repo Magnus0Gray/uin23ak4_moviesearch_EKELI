@@ -1,18 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&display=swap');
 
 $mainfont: Arial, sans-serif;
+$headerfont: 'Archivo', sans-serif;
 
 $red: #870000;
 $error: red;
 $white: #FFFFFF;
 $black: #000000;
+$dark: #242424;
 $grey: #707070;
 $lightgrey: #F0F0F0;
 $maxwidth: 1200px;
 $rootsize: 20px;
 
 body {
-    background-color: $black;
+    background-color: $dark;
     color: $white;
     font-family: $mainfont;
     font-size: $rootsize;
@@ -32,18 +34,32 @@ body {
 
 header {
     padding: 2rem;
-    background-color: $red; 
+    background-color: $red;
+    font-style: italic;
+    font-weight: 800;
+    //max-width: 500px;
+    font-family: $headerfont;
+    box-shadow: 0px 0px 10px $black;
+    border: 1px outset $grey;
+    border-radius: 0.5rem;
+    margin: 0 4rem 2rem 4rem;
+    text-align: center;
 
-    a {
-        width: 100%;
-        max-width: 250px;
+    h1 {
         text-transform: uppercase;
         text-decoration: none;
+        text-align: center;
+        text-shadow: 2px 2px 2px black, 0 0 1em black;
         color: $white;
+    }
+
+    a {
+        text-decoration: none;
     }
 }
 
 .movie-card {
+    background-color: $black;
     border: 3px solid $grey;
     border-radius: 20px;
     padding: 5rem;
@@ -53,6 +69,7 @@ header {
     width: 100%;
     max-width: 350px;
     text-align: center;
+    box-shadow: 0px 0px 50px $black;
 
     img {
         width: auto;
@@ -72,4 +89,9 @@ header {
 
 .error-text{
     color: $error;
+}
+
+.searchbox{
+    border-radius: 1rem;
+    padding: 0.5rem;
 }

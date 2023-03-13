@@ -2,7 +2,10 @@ import MovieCard from './MovieCard';
 
 export default function SearchResults({ movies, searchTerm }) {
     return (<>
-        <h2>Results for {searchTerm}</h2>
+        {movies !== undefined
+            ? <h2>Results for {searchTerm}</h2>
+            : null
+        }
         <section className="searchresults">
             {movies !== undefined
                 ? movies.map((movie, index) => (

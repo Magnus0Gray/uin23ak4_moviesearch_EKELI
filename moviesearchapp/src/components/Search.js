@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import {useEffect, useState } from 'react'
 
 export default function Search({ setSearch, getMovies, setSearchTerm }) {
     const [inputvalue, setInputvalue] = useState('')
@@ -6,9 +6,22 @@ export default function Search({ setSearch, getMovies, setSearchTerm }) {
 
     const handleSearch = (event) => {
 
-        console.log(event.target.value)
+        //console.log(event.target.value)
         setInputvalue(event.target.value)
+
+
         setSearch(event.target.value)
+        if (event.target.value.length >= 3) {
+            setSearchTerm(event.target.value)
+            //getMovies()
+            //setTimeout(() => { getMovies(); }, 1000);
+            setIsValid(true)
+
+            
+
+        }
+        else
+            setIsValid(false)
          
     }
 
@@ -16,24 +29,30 @@ export default function Search({ setSearch, getMovies, setSearchTerm }) {
         event.preventDefault()
 
     }
-    const handleClick = (event) => {
+
+    //replaced button with live update of searchfield
+   /* const handleClick = (event) => {
         console.log(inputvalue)
-        if (inputvalue.length >= 4) {
+        if (inputvalue.length >= 3) {
             setSearchTerm(inputvalue)
             getMovies()
             setIsValid(true)
         }
         else
             setIsValid(false)
-	}
+	}*/ 
 
-
+    //setState is asyncronous, had to set in useeffect for them to work properly.
+    useEffect(() => {
+        console.log(isValid);
+        if (inputvalue >= 3)
+            getMovies();
+    }, [isValid])
 
     return (<>
-        {isValid === false ? <p className="error-text">Please use 4 letters or more.</p> : null}
+        {isValid === false ? <p className="error-text">Please use 3 characters or more.</p> : null}
         <form onSubmit={handleSubmit}>
-            <input type="search" name="search" placeholder="James Bond..." onChange={handleSearch} />
-            <button type="submit" onClick={handleClick}>Search</button>
+            <input className="searchbox" type="search" name="search" placeholder="James Bond..." onChange={handleSearch} />
         </form>
         </>
     )

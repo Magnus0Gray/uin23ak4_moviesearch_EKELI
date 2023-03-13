@@ -12,9 +12,11 @@ function App() {
     const [searchTerm, setSearchTerm] = useState('James Bond')
 
     const getMovies = async () => {
+        //console.log(search)
+        //console.log(searchTerm)
         const searchResponse = await fetch(`http://www.omdbapi.com/?s=${search}&apikey=9b8e201b&type=movie`)
         const searchData = await searchResponse.json()
-        console.log(searchData.Search)
+        //console.log(searchData.Search)
         setMovies(searchData.Search)
 
 
@@ -23,7 +25,9 @@ function App() {
 
     useEffect(() => {
         getMovies()
-    }, [])
+        console.log(search)
+        console.log(searchTerm)
+    }, [search, searchTerm])
 
     return (
         <Routes>

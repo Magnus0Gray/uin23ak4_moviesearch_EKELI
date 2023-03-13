@@ -6,7 +6,7 @@ export default function MovieCard({ movie }) {
     const getMovieDetails = async () => {
         const detailedResponse = await fetch(`http://www.omdbapi.com/?i=${movie.imdbID}&apikey=9b8e201b`)
         const detailedData = await detailedResponse.json()
-        console.log(detailedData)
+        //console.log(detailedData)
         setDetails(detailedData)
     }
 
